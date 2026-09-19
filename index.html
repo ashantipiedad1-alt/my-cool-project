@@ -1,210 +1,235 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shan Piedad — Visual Content Creator, Video Editor & Graphic Designer</title>
-    
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts: Syne (Display), Playfair Display (Serif accent), Plus Jakarta Sans (Body) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brandPink: '#D82B68',
-                        brandPinkDark: '#B81C52',
-                        brandPinkLight: '#FDF6F8',
-                        brandPinkSoft: '#F9ECEF',
-                        brandCream: '#FDFBF7',
-                        brandText: '#221A1F',
-                        brandMuted: '#685D64',
-                        brandYellow: '#FFF7ED',
-                        brandYellowTape: '#FDE68A'
-                    },
-                    fontFamily: {
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                        display: ['Syne', 'sans-serif'],
-                        serif: ['"Playfair Display"', 'serif']
-                    },
-                    boxShadow: {
-                        'soft': '0 12px 30px -8px rgba(216, 43, 104, 0.08)',
-                        'hover': '0 20px 40px -10px rgba(216, 43, 104, 0.22)',
-                        'polaroid': '0 15px 35px -5px rgba(34, 26, 31, 0.12)',
-                        'phone': '0 25px 50px -12px rgba(0, 0, 0, 0.35)'
-                    }
-                }
-            }
-        }
-    </script>
-
-    <style>
-        body {
-            background-color: #FDFBF7;
-            color: #221A1F;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            overflow-x: hidden;
-        }
-
-        /* Washi Tape / Sticky Note Effect */
-        .tape-effect {
-            position: relative;
-        }
-        .tape-effect::before {
-            content: '';
-            position: absolute;
-            top: -14px;
-            left: 50%;
-            transform: translateX(-50%) rotate(-1deg);
-            width: 90px;
-            height: 26px;
-            background-color: rgba(253, 230, 138, 0.85);
-            border-radius: 2px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-            z-index: 10;
-        }
-
-        /* Smartphone Mockup Frame */
-        .phone-frame {
-            border: 10px solid #1A1317;
-            border-radius: 36px;
-            position: relative;
-            background: #000;
-            overflow: hidden;
-            box-shadow: 0 20px 45px -10px rgba(0,0,0,0.3);
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
-        }
-        .phone-frame::before {
-            content: '';
-            position: absolute;
-            top: 8px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 32%;
-            height: 4px;
-            background-color: #332B30;
-            border-radius: 10px;
-            z-index: 20;
-        }
-
-        /* Tab Active State */
-        .filter-tab.active {
-            background-color: #D82B68;
-            color: #FFFFFF;
-            box-shadow: 0 4px 14px rgba(216, 43, 104, 0.3);
-        }
-
-        /* Modal Overlay Transition */
-        .modal-active {
-            display: flex !important;
-            animation: fadeIn 0.25s ease-out forwards;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.96); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
-        /* Toast Popup Notification */
-        #toast {
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shan Piedad | Visual Content Creator</title>
+  <!-- Google Fonts for Modern Visual Style -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="antialiased selection:bg-brandPink selection:text-white">
+<body>
 
-    <!-- Toast Notification Box -->
-    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 bg-brandText text-white px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-3 text-sm font-bold border border-white/10 pointer-events-none">
-        <i class="fa-solid fa-circle-check text-brandPink text-lg"></i>
-        <span id="toastMsg">Email copied to clipboard!</span>
+  <!-- NAVIGATION -->
+  <header class="navbar">
+    <div class="logo">
+      SHAN PIEDAD <span class="dot">●</span>
     </div>
+    <nav class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="btn-primary-sm">LET'S WORK TOGETHER</a>
+  </header>
 
-    <!-- Sticky Navigation Header -->
-    <header class="sticky top-0 z-40 bg-brandCream/90 backdrop-blur-md border-b border-brandPinkSoft/80 transition-all duration-300">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Brand Logo -->
-            <a href="#" class="group flex items-center gap-2.5">
-                <span class="font-display font-extrabold text-2xl tracking-tight text-brandText group-hover:text-brandPink transition-colors">
-                    SHAN PIEDAD
-                </span>
-                <span class="w-2.5 h-2.5 rounded-full bg-brandPink inline-block animate-ping"></span>
-            </a>
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="home">
+      <div class="badge">PORTFOLIO FRAMEWORK</div>
+      
+      <h1 class="hero-title">
+        SHAN<br>PIEDAD
+      </h1>
+      
+      <h2 class="hero-subtitle">
+        Visual Content Creator <span class="square">■</span> Video Editor <span class="square">■</span> Graphic Designer
+      </h2>
+      
+      <p class="hero-description">
+        Creating simple, engaging visuals through video editing, graphic design, and visual storytelling that connect with real audiences.
+      </p>
 
-            <!-- Desktop Links -->
-            <nav class="hidden md:flex items-center space-x-8 text-sm font-bold text-brandText">
-                <a href="#work" class="hover:text-brandPink transition-colors">Work</a>
-                <a href="#services" class="hover:text-brandPink transition-colors">Services</a>
-                <a href="#about" class="hover:text-brandPink transition-colors">About</a>
-                <a href="#experience" class="hover:text-brandPink transition-colors">Experience</a>
-                <a href="#contact" class="hover:text-brandPink transition-colors">Contact</a>
-            </nav>
+      <div class="pill-container">
+        <span class="pill">📹 Short-Form Video</span>
+        <span class="pill">🎨 Event & Social Graphics</span>
+        <span class="pill">📣 Content Strategy</span>
+      </div>
 
-            <!-- Call to Action -->
-            <div class="hidden md:flex items-center gap-3">
-                <a href="#contact" class="px-6 py-2.5 rounded-full bg-brandPink hover:bg-brandPinkDark text-white font-extrabold text-xs uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5">
-                    Let's Work Together
-                </a>
+      <div class="hero-actions">
+        <a href="#work" class="btn-primary">VIEW MY WORK</a>
+        <a href="#about" class="btn-secondary">ABOUT ME</a>
+      </div>
+    </section>
+
+    <!-- SELECTED WORK SECTION -->
+    <section class="section" id="work">
+      <div class="section-header">
+        <span class="section-badge">02 / PORTFOLIO</span>
+        <h2>SELECTED WORK</h2>
+      </div>
+
+      <!-- Category 1: Video Editing -->
+      <div class="work-category">
+        <h3>VIDEO EDITING</h3>
+        <div class="work-grid">
+          
+          <div class="work-card">
+            <div class="card-media">
+              <div class="placeholder-img">VIDEO PREVIEW / THUMBNAIL</div>
             </div>
+            <div class="card-details">
+              <span class="card-tag">Short-Form Reel</span>
+              <h4>Mauritius Family Travel Reel</h4>
+              <p>Warm, cinematic family-oriented travel reel styled for high Instagram & TikTok engagement.</p>
+              <div class="card-tools">Tools: CapCut</div>
+            </div>
+          </div>
 
-            <!-- Mobile Menu Toggle Button -->
-            <button id="mobileMenuBtn" class="md:hidden p-2 text-brandText focus:outline-none" aria-label="Toggle Menu">
-                <i class="fa-solid fa-bars text-2xl" id="menuIcon"></i>
-            </button>
+          <div class="work-card">
+            <div class="card-media">
+              <div class="placeholder-img">VIDEO PREVIEW / THUMBNAIL</div>
+            </div>
+            <div class="card-details">
+              <span class="card-tag">Lifestyle / Vlog</span>
+              <h4>Content Reel Edits</h4>
+              <p>Paced short-form edits focused on clean transitions and audio storytelling.</p>
+              <div class="card-tools">Tools: CapCut / AI Tools</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Category 2: Graphic Design -->
+      <div class="work-category">
+        <h3>GRAPHIC DESIGN</h3>
+        <div class="work-grid">
+
+          <div class="work-card">
+            <div class="card-media">
+              <div class="placeholder-img">GRAPHIC PREVIEW</div>
+            </div>
+            <div class="card-details">
+              <span class="card-tag">Event Branding</span>
+              <h4>Global Speakers Summit 2026</h4>
+              <p>Social media promo graphics, promotional banners, and attendee collateral.</p>
+              <div class="card-tools">Tools: Canva / Photoshop</div>
+            </div>
+          </div>
+
+          <div class="work-card">
+            <div class="card-media">
+              <div class="placeholder-img">GRAPHIC PREVIEW</div>
+            </div>
+            <div class="card-details">
+              <span class="card-tag">Brand Collateral</span>
+              <h4>Dreamtime Kullilla-Art</h4>
+              <p>Clean social content layouts and visual post designs maintaining brand identity.</p>
+              <div class="card-tools">Tools: Canva</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="section alt-bg" id="about">
+      <div class="section-header">
+        <span class="section-badge">03 / STORY</span>
+        <h2>ABOUT ME</h2>
+      </div>
+
+      <div class="about-content">
+        <div class="about-text">
+          <p class="lead-text">Hi, I'm Shan.</p>
+          <p>
+            I'm a college student passionate about video editing, graphic design, and creating visual content. I enjoy experimenting with different styles and finding clear, creative ways to make content simple, engaging, and visually appealing.
+          </p>
+          <p>
+            I'm actively growing my experience across digital media fields—comfortable adapting quickly to creative briefs, following references accurately, and executing feedback seamlessly.
+          </p>
         </div>
 
-        <!-- Mobile Drawer Navigation -->
-        <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-gray-100 px-6 py-6 space-y-4 shadow-xl">
-            <a href="#work" class="mobile-link block text-base font-bold text-brandText hover:text-brandPink">Work</a>
-            <a href="#services" class="mobile-link block text-base font-bold text-brandText hover:text-brandPink">Services</a>
-            <a href="#about" class="mobile-link block text-base font-bold text-brandText hover:text-brandPink">About</a>
-            <a href="#experience" class="mobile-link block text-base font-bold text-brandText hover:text-brandPink">Experience</a>
-            <a href="#contact" class="mobile-link block text-base font-bold text-brandText hover:text-brandPink">Contact</a>
-            <div class="pt-2 border-t border-gray-100">
-                <a href="#contact" class="mobile-link block text-center py-3 rounded-xl bg-brandPink text-white font-extrabold text-sm shadow-md">
-                    Let's Work Together
-                </a>
-            </div>
+        <div class="exploring-box">
+          <h4>CURRENTLY EXPLORING</h4>
+          <ul>
+            <li>Pinterest Content Strategy</li>
+            <li>Email Newsletter Design</li>
+            <li>Advanced Photoshop Workflows</li>
+            <li>AI-Assisted Video Editing</li>
+          </ul>
         </div>
-    </header>
+      </div>
+    </section>
 
-    <main class="space-y-24 md:space-y-36 pt-8 pb-20">
+    <!-- SKILLS & EXPERIENCE SECTION -->
+    <section class="section" id="experience">
+      <div class="section-header">
+        <span class="section-badge">04 / KNOWLEDGE</span>
+        <h2>TOOLS & EXPERIENCE</h2>
+      </div>
 
-        <!-- Hero Section -->
-        <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-12 gap-10 items-center">
-                <!-- Content Left -->
-                <div class="md:col-span-7 space-y-6">
-                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brandPinkLight border border-brandPink/20 text-brandPink text-xs font-black uppercase tracking-widest">
-                        <i class="fa-solid fa-sparkles"></i> Portfolio Framework
-                    </div>
+      <!-- Tools Categories -->
+      <div class="tools-grid">
+        <div class="tool-card">
+          <h4>Design</h4>
+          <p>Canva, Photoshop</p>
+        </div>
+        <div class="tool-card">
+          <h4>Video Editing</h4>
+          <p>CapCut</p>
+        </div>
+        <div class="tool-card">
+          <h4>AI & Creative Support</h4>
+          <p>ChatGPT, Gemini, Canva AI, Claude, Synthesia</p>
+        </div>
+        <div class="tool-card">
+          <h4>Social & Admin</h4>
+          <p>Meta Business Suite, Buffer</p>
+        </div>
+      </div>
 
-                    <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-brandText tracking-tight leading-[1.12]">
-                        SHAN PIEDAD
-                        <span class="block text-transparent bg-clip-text bg-gradient-to-r from-brandPink to-brandPinkDark text-3xl sm:text-4xl lg:text-5xl mt-2 font-bold">
-                            Visual Content Creator • Video Editor • Graphic Designer
-                        </span>
-                    </h1>
+      <!-- Experience & Projects -->
+      <div class="experience-list">
+        <h3>EXPERIENCE & PROJECTS</h3>
 
-                    <p class="text-base sm:text-lg text-brandMuted font-medium max-w-xl leading-relaxed">
-                        Creating simple, engaging visuals through video editing, graphic design, and visual storytelling that connect with real audiences.
-                    </p>
+        <div class="exp-item">
+          <div class="exp-role">
+            <h4>Social Media & Virtual Assistance</h4>
+            <span class="exp-company">Builders Business Support</span>
+          </div>
+          <p>Social media graphics creation, post captions, page management, audience engagement, basic analytics tracking, and data entry support.</p>
+        </div>
 
-                    <!-- Feature Badges -->
-                    <div class="flex flex-wrap gap-2 pt-1">
-                        <span class="px-3.5 py-1.5 rounded-full bg-white border border-brandPinkSoft text-xs font-bold text-brandText shadow-sm flex items-center gap-1.5">
-                            <i class="fa-solid fa-video text-brandPink"></i> Short-Form Video
-                        </span>
-                        <span class="px-3.5 py-1.5 rounded-full bg-white border border-brandPinkSoft text-xs font-bold text-brandText shadow-sm flex items-center gap-1.5">
-                            <i class="fa-solid fa-palette text-brandPink"></i> Event & Social Graphics
-                        </span>
-                        <span class="px-3.5 py-1.5 rounded-full bg-white border border-brandPinkSoft text-xs font-bold text-brandText shadow-sm flex items-center gap-1.5">
-                            <i class="fa-solid fa-bullhorn text-brandPink"></i> Content Strategy
-                        </span>
+        <div class="exp-item">
+          <div class="exp-role">
+            <h4>Data Entry Assistant</h4>
+            <span class="exp-company">Phesi Inc.</span>
+          </div>
+          <p>Maintained organized clinical-trial-related database entries and structured patient profiles accurately.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="section contact-section" id="contact">
+      <div class="contact-box">
+        <span class="section-badge">05 / CONNECT</span>
+        <h2>LET'S CREATE SOMETHING</h2>
+        <p>Have a project in mind or looking for a creative assistant? Let's connect.</p>
+        
+        <div class="contact-links">
+          <a href="mailto:your-email@example.com" class="btn-primary">EMAIL ME →</a>
+        </div>
+
+        <div class="social-links">
+          <a href="#" target="_blank">LinkedIn</a> • 
+          <a href="#" target="_blank">Instagram</a> • 
+          <a href="#" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Shan Piedad. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
